@@ -1,0 +1,22 @@
+# n = number of matches
+n = input()
+# match fees
+match_fees = list(map(int,input().split()))
+if(len(match_fees) > int(n)):
+    print("You have entered fees for more than", n, "matches")
+elif(len(match_fees) < int(n)):
+    print("Please enter fees for", n, "matches")
+else:
+    match_fees.sort(reverse = True)
+    # maximum earnings the captain can have
+    max_earnings = 0
+    counter = 0
+    for i in match_fees:
+        if(counter == 2):
+            counter = 0
+            continue
+        else:
+            counter = counter + 1
+            max_earnings = max_earnings + i
+
+    print(max_earnings)
